@@ -1,13 +1,15 @@
-SUMMARY = "bitbake-layers recipe"
+SUMMARY = "bitbake-layers recipe self learning"
 DESCRIPTION = "Recipe created by bitbake-layers"
 LICENSE = "MIT"
+LIC_FILES_CHKSUM = ""
 
-python do_display_banner() {
-    bb.plain("***********************************************");
-    bb.plain("*                                             *");
-    bb.plain("*  Example recipe created by bitbake-layers   *");
-    bb.plain("*                                             *");
-    bb.plain("***********************************************");
-}
+FILESEXTRAPATH_prepend :="${THISDIR}/${PN}-${PV}:"
 
-addtask display_banner before do_build
+SRCREV = "57147ede9b758fce06ad9a793d97b413ffca1b68"
+SRC_URI = "git://github.com:sushmedass/sushme-example.git"
+
+S = "${WORKDIR}/git"
+
+inherit autotools
+
+PARALLEL_MAKE = ""
